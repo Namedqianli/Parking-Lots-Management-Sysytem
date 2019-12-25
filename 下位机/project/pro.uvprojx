@@ -49,7 +49,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\Objects\</OutputDirectory>
-          <OutputName>pro</OutputName>
+          <OutputName>STM32-FD-FLASHLED</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>1</CreateHexFile>
@@ -335,7 +335,7 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>USE_STDPERIPH_DRIVER,STM32F10X_MD</Define>
+              <Define>USE_STDPERIPH_DRIVER, STM32F10X_MD</Define>
               <Undefine></Undefine>
               <IncludePath>.\FWLib\inc;.\CMSIS;.\USER;.\DRIVER</IncludePath>
             </VariousControls>
@@ -405,6 +405,16 @@
               <FileName>Lcd_Driver.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\USER\Lcd_Driver.c</FilePath>
+            </File>
+            <File>
+              <FileName>rc522.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\USER\rc522.c</FilePath>
+            </File>
+            <File>
+              <FileName>MAIN.H</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\USER\MAIN.H</FilePath>
             </File>
           </Files>
         </Group>

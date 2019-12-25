@@ -47,33 +47,33 @@
 
 
 
-#define LCD_SCL        	GPIO_Pin_5	//PB13--->>TFT --SCL/SCK
-#define LCD_SDA        	GPIO_Pin_7	//PB15 MOSI--->>TFT --SDA/DIN
-#define LCD_CS        	GPIO_Pin_4  //MCU_PB11--->>TFT --CS/CE
+#define LCD_SCL        	GPIO_Pin_11	//PB11--->>TFT --SCL/SCK
+#define LCD_SDA        	GPIO_Pin_10	//PB10 MOSI--->>TFT --SDA/DIN
+#define LCD_CS        	GPIO_Pin_7  //PA7--->>TFT --CS/CE
 
-#define LCD_LED        	GPIO_Pin_10  //MCU_PB9--->>TFT --BL
-#define LCD_RS         	GPIO_Pin_1	//PB11--->>TFT --RS/DC
-#define LCD_RST     	GPIO_Pin_0	//PB10--->>TFT --RST
+#define LCD_LED        	GPIO_Pin_6  //PA6--->>TFT --BL
+#define LCD_RS         	GPIO_Pin_0	//PB0--->>TFT --RS/DC
+#define LCD_RST     		GPIO_Pin_1	//PB1--->>TFT --RST
 
 //#define LCD_CS_SET(x) LCD_CTRL->ODR=(LCD_CTRL->ODR&~LCD_CS)|(x ? LCD_CS:0)
 
 //液晶控制口置1操作语句宏定义
-#define	LCD_SCL_SET  	LCD_CTRLA->BSRR=LCD_SCL    
-#define	LCD_SDA_SET  	LCD_CTRLA->BSRR=LCD_SDA   
-#define	LCD_CS_SET  	LCD_CTRLA->BSRR=LCD_CS  
+#define	LCD_SCL_SET  	LCD_CTRLB->BSRR=LCD_SCL
+#define	LCD_SDA_SET  	LCD_CTRLB->BSRR=LCD_SDA
+#define	LCD_CS_SET  	LCD_CTRLA->BSRR=LCD_CS
 
     
-#define	LCD_LED_SET  	LCD_CTRLB->BSRR=LCD_LED   
-#define	LCD_RS_SET  	LCD_CTRLB->BSRR=LCD_RS 
-#define	LCD_RST_SET  	LCD_CTRLB->BSRR=LCD_RST 
+#define	LCD_LED_SET  	LCD_CTRLA->BSRR=LCD_LED
+#define	LCD_RS_SET  	LCD_CTRLB->BSRR=LCD_RS
+#define	LCD_RST_SET  	LCD_CTRLB->BSRR=LCD_RST
 //液晶控制口置0操作语句宏定义
-#define	LCD_SCL_CLR  	LCD_CTRLA->BRR=LCD_SCL  
-#define	LCD_SDA_CLR  	LCD_CTRLA->BRR=LCD_SDA 
-#define	LCD_CS_CLR  	LCD_CTRLA->BRR=LCD_CS 
-    
-#define	LCD_LED_CLR  	LCD_CTRLB->BRR=LCD_LED 
+#define	LCD_SCL_CLR  	LCD_CTRLB->BRR=LCD_SCL
+#define	LCD_SDA_CLR  	LCD_CTRLB->BRR=LCD_SDA
+#define	LCD_CS_CLR  	LCD_CTRLA->BRR=LCD_CS
+
+#define	LCD_LED_CLR  	LCD_CTRLA->BRR=LCD_LED
 #define	LCD_RST_CLR  	LCD_CTRLB->BRR=LCD_RST
-#define	LCD_RS_CLR  	LCD_CTRLB->BRR=LCD_RS 
+#define	LCD_RS_CLR  	LCD_CTRLB->BRR=LCD_RS
 
 #define LCD_DATAOUT(x) LCD_DATA->ODR=x; //数据输出
 #define LCD_DATAIN     LCD_DATA->IDR;   //数据输入

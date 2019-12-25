@@ -22,26 +22,35 @@ Dialog DLL:      TCM.DLL V1.36.1.0
  
 <h2>Project:</h2>
 E:\Code\EMB\下位机\project\pro.uvprojx
-Project File Date:  12/24/2019
+Project File Date:  12/25/2019
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Software\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Target 1'
 compiling main.c...
-USER\main.c(7): warning:  #223-D: function "Lcd_Init" declared implicitly
-  		Lcd_Init();
-USER\main.c(8): warning:  #223-D: function "Gui_DrawFont_GBK16" declared implicitly
-  		Gui_DrawFont_GBK16(16,30,YELLOW,GRAY0,"全动电子技术");
-USER\main.c(8): error:  #20: identifier "YELLOW" is undefined
-  		Gui_DrawFont_GBK16(16,30,YELLOW,GRAY0,"全动电子技术");
-USER\main.c(8): error:  #20: identifier "GRAY0" is undefined
-  		Gui_DrawFont_GBK16(16,30,YELLOW,GRAY0,"全动电子技术");
-USER\main.c(11): warning:  #111-D: statement is unreachable
-  	return 0;
-USER\main.c(12): warning:  #1-D: last line of file ends without a newline
-  }
-USER\main.c: 4 warnings, 2 errors
-".\Objects\pro.axf" - 2 Error(s), 4 Warning(s).
+USER\main.c(58): warning:  #1295-D: Deprecated declaration findcard - give arg types
+  void findcard();
+USER\main.c(203): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *__restrict__"
+  								sprintf(buf, " %s  ",SelectedSnr);
+USER\main.c(158): warning:  #177-D: variable "rfidflag"  was declared but never referenced
+  	unsigned char rfidflag;
+USER\main.c(159): warning:  #177-D: variable "discnt"  was declared but never referenced
+  	unsigned char discnt;
+USER\main.c(219): warning:  #1293-D: assignment in condition
+    { if (SelectedSnr[ii] = card1[ii])
+USER\main.c(228): warning:  #111-D: statement is unreachable
+  	      break; 
+USER\main.c(241): warning:  #111-D: statement is unreachable
+  	 	     break; 
+USER\main.c(254): warning:  #111-D: statement is unreachable
+  	 	     break; 
+USER\main.c(267): warning:  #111-D: statement is unreachable
+  	 	     break; 
+USER\main.c: 9 warnings, 0 errors
+linking...
+Program Size: Code=4972 RO-data=6884 RW-data=44 ZI-data=1652  
+FromELF: creating hex file...
+".\Objects\STM32-FD-FLASHLED.axf" - 0 Error(s), 9 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -55,7 +64,6 @@ Package Vendor: Keil
   D:\Software\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include
 
 <h2>Collection of Component Files used:</h2>
-Target not created.
 Build Time Elapsed:  00:00:01
 </pre>
 </body>

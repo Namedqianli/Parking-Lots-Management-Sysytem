@@ -28,3 +28,10 @@
 .\objects\main.o: .\FWLib\inc\stm32f10x_usart.h
 .\objects\main.o: .\FWLib\inc\stm32f10x_wwdg.h
 .\objects\main.o: .\FWLib\inc\misc.h
+.\objects\main.o: USER\MAIN.h
+.\objects\main.o: USER\mfrc522.h
+.\objects\main.o: D:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\main.o: USER\Lcd_Driver.h
+.\objects\main.o: USER\GUI.h
+.\objects\main.o: USER\delay.h
+.\objects\main.o: D:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
