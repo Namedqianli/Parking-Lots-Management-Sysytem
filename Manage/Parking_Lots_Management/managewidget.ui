@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>648</width>
-    <height>382</height>
+    <width>844</width>
+    <height>562</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -60,7 +60,7 @@
            </font>
           </property>
           <property name="title">
-           <string>门禁信息</string>
+           <string>车辆信息</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_2">
            <item row="0" column="1">
@@ -118,7 +118,7 @@
            <item row="3" column="0">
             <widget class="QLabel" name="label_2">
              <property name="text">
-              <string>学号:</string>
+              <string>车主:</string>
              </property>
             </widget>
            </item>
@@ -159,14 +159,14 @@
            <item row="1" column="0">
             <widget class="QLabel" name="label_4">
              <property name="text">
-              <string>姓名:</string>
+              <string>车牌:</string>
              </property>
             </widget>
            </item>
            <item row="5" column="0">
             <widget class="QLabel" name="label_9">
              <property name="text">
-              <string>性别:</string>
+              <string>余额:</string>
              </property>
             </widget>
            </item>
@@ -271,7 +271,7 @@
               </font>
              </property>
              <property name="text">
-              <string>在勤人数</string>
+              <string>停车场车辆数量</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -307,7 +307,7 @@
            <item row="9" column="1">
             <widget class="QLabel" name="label_39">
              <property name="text">
-              <string>考勤机器状态</string>
+              <string>计费机器状态</string>
              </property>
             </widget>
            </item>
@@ -322,7 +322,7 @@
               </font>
              </property>
              <property name="text">
-              <string>总人数</string>
+              <string>车辆总数</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>

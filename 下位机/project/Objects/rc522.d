@@ -2,7 +2,7 @@
 .\objects\rc522.o: USER\main.h
 .\objects\rc522.o: .\CMSIS\stm32f10x.h
 .\objects\rc522.o: .\CMSIS\core_cm3.h
-.\objects\rc522.o: D:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\rc522.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\rc522.o: .\CMSIS\system_stm32f10x.h
 .\objects\rc522.o: .\USER\stm32f10x_conf.h
 .\objects\rc522.o: .\FWLib\inc\stm32f10x_adc.h

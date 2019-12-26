@@ -1,7 +1,7 @@
 .\objects\lcd_driver.o: USER\Lcd_Driver.c
 .\objects\lcd_driver.o: .\CMSIS\stm32f10x.h
 .\objects\lcd_driver.o: .\CMSIS\core_cm3.h
-.\objects\lcd_driver.o: D:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\lcd_driver.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\lcd_driver.o: .\CMSIS\system_stm32f10x.h
 .\objects\lcd_driver.o: .\USER\stm32f10x_conf.h
 .\objects\lcd_driver.o: .\FWLib\inc\stm32f10x_adc.h

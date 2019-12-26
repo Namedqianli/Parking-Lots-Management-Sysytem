@@ -200,7 +200,7 @@ int main(void)
 								status = PcdRead((snr*4+0), bufr);  
 								findcard();
 								 //printf(" %s %s",bufr,SelectedSnr);
-								sprintf(buf, " %s ",SelectedSnr);
+								printf(" id:%s ",SelectedSnr);
 								Gui_DrawFont_GBK16(0,100,BLUE,GRAY0,buf);
 								WaitCardOff();
 							}
@@ -214,15 +214,19 @@ int main(void)
 }
 
 void findcard()
-{ unsigned char ii;
+{
+	unsigned char ii;
 	for (ii=0;ii<5;ii++)	  //±È½Ï¿¨ÐòÁÐºÅ
-  { if (SelectedSnr[ii] = card1[ii])
-    { kahao=0; 
+  {
+		if (SelectedSnr[ii] = card1[ii])
+    {
+			kahao=0; 
 			LED_OFF;
 	    break;
 	  }
 	  else
-	  { if (ii==3)
+	  {
+			if (ii==3)
 	    { kahao=1; 
 	      goto A;
 	      break; 

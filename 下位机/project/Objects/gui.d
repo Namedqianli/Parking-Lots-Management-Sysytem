@@ -1,7 +1,7 @@
 .\objects\gui.o: USER\GUI.c
 .\objects\gui.o: .\CMSIS\stm32f10x.h
 .\objects\gui.o: .\CMSIS\core_cm3.h
-.\objects\gui.o: D:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\gui.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\gui.o: .\CMSIS\system_stm32f10x.h
 .\objects\gui.o: .\USER\stm32f10x_conf.h
 .\objects\gui.o: .\FWLib\inc\stm32f10x_adc.h
