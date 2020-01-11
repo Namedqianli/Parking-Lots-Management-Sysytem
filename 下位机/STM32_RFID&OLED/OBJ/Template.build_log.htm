@@ -1,0 +1,87 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.25.3.0
+Copyright (C) 2018 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Li JunkYu, guet, LIC=CZLX7-E1WA3-UGC7Q-NA518-CULXN-794AH
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.26.2.0
+Toolchain Path:  D:\Software\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 6 (build 750)
+Assembler:       Armasm.exe V5.06 update 6 (build 750)
+Linker/Locator:  ArmLink.exe V5.06 update 6 (build 750)
+Library Manager: ArmAr.exe V5.06 update 6 (build 750)
+Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
+CPU DLL:         SARMCM3.DLL V5.26.2.0
+Dialog DLL:      DARMSTM.DLL V1.68.0.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.5.0
+Dialog DLL:      TARMSTM.DLL V1.66.0.0
+ 
+<h2>Project:</h2>
+C:\Users\Mr.Li\Downloads\STM32_RFID&OLED\USER\Template.uvprojx
+Project File Date:  12/31/2019
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Software\Keil_v5\ARM\ARMCC\Bin'
+Build target 'OLED'
+compiling main.c...
+main.c(22): warning:  #1295-D: Deprecated declaration findcard - give arg types
+  void findcard();
+main.c(204): warning:  #513-D: a value of type "u8 *" cannot be assigned to an entity of type "char *"
+  				p = &USART_RX_BUF[1];
+main.c(205): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "u8 *"
+  				Gui_DrawFont_GBK16(0,50,BLUE,GRAY0,p);
+main.c(211): warning:  #513-D: a value of type "u8 *" cannot be assigned to an entity of type "char *"
+  				p = &USART_RX_BUF[1];
+main.c(212): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "u8 *"
+  				Gui_DrawFont_GBK16(0,100,BLUE,GRAY0,p);	
+main.c(216): warning:  #513-D: a value of type "u8 *" cannot be assigned to an entity of type "char *"
+  				p = &USART_RX_BUF[1];
+main.c(217): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "u8 *"
+  				Gui_DrawFont_GBK16(0,130,BLUE,GRAY0, p);
+main.c(116): warning:  #177-D: variable "rfidflag"  was declared but never referenced
+  	unsigned char rfidflag;
+main.c(117): warning:  #177-D: variable "discnt"  was declared but never referenced
+  	unsigned char discnt;
+main.c(237): warning:  #111-D: statement is unreachable
+  	      break; 
+main.c(250): warning:  #111-D: statement is unreachable
+  	 	     break; 
+main.c(263): warning:  #111-D: statement is unreachable
+  	 	     break; 
+main.c(276): warning:  #111-D: statement is unreachable
+  	 	     break; 
+main.c: 13 warnings, 0 errors
+linking...
+Program Size: Code=7080 RO-data=6952 RW-data=124 ZI-data=1932  
+FromELF: creating hex file...
+"..\OBJ\Template.axf" - 0 Error(s), 13 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.4.0.pack
+                ARM.CMSIS.5.4.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.1.2
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F1xx_DFP.2.3.0.pack
+                Keil.STM32F1xx_DFP.2.3.0
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_OLED
+  D:\Software\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include
+  D:\Software\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.1.2
+Build Time Elapsed:  00:00:03
+</pre>
+</body>
+</html>

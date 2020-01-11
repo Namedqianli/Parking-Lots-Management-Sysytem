@@ -63,7 +63,6 @@ bool ManageWidget::nativeEvent(const QByteArray &eventType, void *message, long 
                     qDebug() << info.portName();
                     if(info.portName() == serialPort->portName())
                     {
-
                         return false;
                     }
                     else
@@ -136,12 +135,12 @@ void ManageWidget::connectDatabase()
 //更新显示
 void ManageWidget::updateTableView()
 {
-    model->setHeaderData(0, Qt::Horizontal,"学号");
-    model->setHeaderData(1, Qt::Horizontal,"姓名");
-    model->setHeaderData(2, Qt::Horizontal,"性别");
+    model->setHeaderData(0, Qt::Horizontal,"车牌号");
+    model->setHeaderData(1, Qt::Horizontal,"车主");
+    model->setHeaderData(2, Qt::Horizontal,"余额");
     model->setHeaderData(3, Qt::Horizontal,"进入时间");
     model->setHeaderData(4, Qt::Horizontal,"离开时间");
-    model->setHeaderData(5, Qt::Horizontal,"面部ID");
+    model->setHeaderData(5, Qt::Horizontal,"ID");
     model->setHeaderData(6, Qt::Horizontal,"是否离开");
     ui->tableViewInfo->setModel(model);
 }
@@ -167,11 +166,12 @@ void ManageWidget::scanPort()
             serialPort->setStopBits(QSerialPort::OneStop);
             //设置流控制
             serialPort->setFlowControl(QSerialPort::NoFlowControl);
-            serialPort->write("#");
+            serialPort->write("#\r\n");
             qDebug() << "write success";
             serialPort->waitForBytesWritten(100);
-            serialPort->waitForReadyRead(100);
+            serialPort->waitForReadyRead(200);
             QString ans(serialPort->readAll());
+            qDebug() << ans;
             if(ans.contains('!'))
             {
                 //接收串口的信息
@@ -269,11 +269,13 @@ void ManageWidget::dealReadFromSerialPort()
     //有人进入或离开
     else
     {
+        QString sendBUffer;
+        int ye;
         //获取系统时间
         QDateTime local(QDateTime::currentDateTime());
         QString localTime = local.toString("yyyy-MM-dd:hh:mm:ss");
         //查询信息
-        QString qbuf = QString("select * from doorinfo where faceid=\"%1\";").arg(buffer);
+        QString qbuf = QString("select * from doorinfo where rfidid=\"%1\";").arg(buffer);
         query.exec(qbuf);
         query.next();
         QString flag;
@@ -281,30 +283,56 @@ void ManageWidget::dealReadFromSerialPort()
         //如果未进入
         if(flag == "0")
         {
-            qbuf = QString("UPDATE doorinfo SET entrytime = \"%1\"WHERE faceid = \"%2\"").arg(localTime, buffer);
+            sendBUffer = "1" + localTime + "\r\n";
+            serialPort->write(sendBUffer.toUtf8());     //进入时间
+            qbuf = QString("UPDATE doorinfo SET entrytime = \"%1\"WHERE rfidid = \"%2\"").arg(localTime, buffer);
             query.exec(qbuf);
-            qbuf = QString("UPDATE doorinfo SET flag = \"%1\"WHERE faceid = \"%2\"").arg("1", buffer);
+            qbuf = QString("UPDATE doorinfo SET flag = \"%1\"WHERE rfidid = \"%2\"").arg("1", buffer);
             query.exec(qbuf);
             iNNums++;
+            qbuf = QString("select * from doorinfo where rfidid=\"%1\";").arg(buffer);
+            query.exec(qbuf);
+            query.next();
+            ui->labelId->setText(query.value(1).toString());
+            ui->labelName->setText(query.value(0).toString());
+            ui->labelBalance->setText(query.value(2).toString());
+            ui->labelEntryTime->setText(query.value(3).toString());
+            ui->labelLeftTime->setText(query.value(4).toString());
+            QDateTime entryTime = QDateTime::fromString(query.value(3).toString(), "yyyy-MM-dd:hh:mm:ss");
+
         }
         else if(flag == "1") //已经进入
         {
-            qbuf = QString("UPDATE doorinfo SET lefttime = \"%1\"WHERE faceid = \"%2\"").arg(localTime, buffer);
+            sendBUffer = "2" + localTime + "\r\n";
+            serialPort->write(sendBUffer.toUtf8());     //离开时间
+            qbuf = QString("UPDATE doorinfo SET lefttime = \"%1\"WHERE rfidid = \"%2\"").arg(localTime, buffer);
             query.exec(qbuf);
-            qbuf = QString("UPDATE doorinfo SET flag = \"%1\"WHERE faceid = \"%2\"").arg("0", buffer);
+            qbuf = QString("UPDATE doorinfo SET flag = \"%1\"WHERE rfidid = \"%2\"").arg("0", buffer);
             query.exec(qbuf);
             iNNums--;
             if(iNNums < 0)
                 iNNums = 0;
+            qbuf = QString("select * from doorinfo where rfidid=\"%1\";").arg(buffer);
+            query.exec(qbuf);
+            query.next();
+            ui->labelId->setText(query.value(1).toString());
+            ui->labelName->setText(query.value(0).toString());
+            ui->labelBalance->setText(query.value(2).toString());
+            ui->labelEntryTime->setText(query.value(3).toString());
+            ui->labelLeftTime->setText(query.value(4).toString());
+            QDateTime entryTime = QDateTime::fromString(query.value(3).toString(), "yyyy-MM-dd:hh:mm:ss");
+            QDateTime leftTime = QDateTime::fromString(query.value(4).toString(), "yyyy-MM-dd:hh:mm:ss");
+            qint64 sec = leftTime.secsTo(entryTime);
+            if(sec < 0)
+                sec *= -1;
+            ye = query.value(2).toString().toInt();
+            ye = ye - (sec * 1);
+            qbuf = QString("UPDATE doorinfo SET balance = \"%1\"WHERE rfidid = \"%2\"").arg(QString::number(ye), buffer);
+            query.exec(qbuf);
+            ui->labelBalance->setText(QString::number(ye));
+            sendBUffer = "3" + QString::number(ye) + "\r\n";
+            serialPort->write(sendBUffer.toUtf8());   //余额
         }
-        qbuf = QString("select * from doorinfo where faceid=\"%1\";").arg(buffer);
-        query.exec(qbuf);
-        query.next();
-        ui->labelId->setText(query.value(0).toString());
-        ui->labelName->setText(query.value(1).toString());
-        ui->labelSex->setText(query.value(2).toString());
-        ui->labelEntryTime->setText(query.value(3).toString());
-        ui->labelLeftTime->setText(query.value(4).toString());
     }
     if(iNNums < 0)
         iNNums = 0;
@@ -316,10 +344,10 @@ void ManageWidget::dealReadFromSerialPort()
 void ManageWidget::on_buttonAdd_released()
 {
     QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(this, "注意", "请将面部对准摄像头。", QMessageBox::Yes | QMessageBox::No);
+    reply = QMessageBox::question(this, "注意", "确定后请刷卡", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes)
     {
-        serialPort->write("!");
+        serialPort->write("!\r\n");
     }
 }
 
@@ -338,11 +366,6 @@ void ManageWidget::on_buttonDelete_released()
     }
     else
     {
-//        model->submitAll(); //否则提交，在数据库中删除该行
-//        allNums--;
-//        QString faceId = model->data(model->index(curRow, 5)).toString();
-//        serialPort->write(faceId.toUtf8());
-//        ui->lineEditAllNum->setText(QString::number(allNums));
         allNums--;
         QAbstractItemModel *qModel = ui->tableViewInfo->model();
         QString faceId = qModel->data(qModel->index(curRow, 5)).toString();
@@ -388,4 +411,9 @@ void ManageWidget::on_pushButtonFlesh_released()
     model->select();
     ui->lineEditInNum->setText(QString::number(iNNums));
     ui->lineEditAllNum->setText(QString::number(allNums));
+}
+
+void ManageWidget::on_pushButtonReflsh_clicked()
+{
+    scanPort();
 }

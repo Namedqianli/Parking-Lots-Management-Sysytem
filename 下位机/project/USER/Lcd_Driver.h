@@ -47,31 +47,31 @@
 
 
 
-#define LCD_SCL        	GPIO_Pin_11	//PB11--->>TFT --SCL/SCK
-#define LCD_SDA        	GPIO_Pin_10	//PB10 MOSI--->>TFT --SDA/DIN
-#define LCD_CS        	GPIO_Pin_7  //PA7--->>TFT --CS/CE
+#define LCD_SCL        	GPIO_Pin_4	//PB11--->>TFT --SCL/SCK
+#define LCD_SDA        	GPIO_Pin_9	//PB10 MOSI--->>TFT --SDA/DIN
+#define LCD_CS        	GPIO_Pin_6  //PA7--->>TFT --CS/CE
 
-#define LCD_LED        	GPIO_Pin_6  //PA6--->>TFT --BL
-#define LCD_RS         	GPIO_Pin_0	//PB0--->>TFT --RS/DC
-#define LCD_RST     		GPIO_Pin_1	//PB1--->>TFT --RST
+#define LCD_LED        	GPIO_Pin_5  //PA6--->>TFT --BL
+#define LCD_RS         	GPIO_Pin_7	//PB0--->>TFT --RS/DC
+#define LCD_RST     		GPIO_Pin_8	//PB1--->>TFT --RST
 
 //#define LCD_CS_SET(x) LCD_CTRL->ODR=(LCD_CTRL->ODR&~LCD_CS)|(x ? LCD_CS:0)
 
 //Òº¾§¿ØÖÆ¿ÚÖÃ1²Ù×÷Óï¾äºê¶¨Òå
 #define	LCD_SCL_SET  	LCD_CTRLB->BSRR=LCD_SCL
 #define	LCD_SDA_SET  	LCD_CTRLB->BSRR=LCD_SDA
-#define	LCD_CS_SET  	LCD_CTRLA->BSRR=LCD_CS
+#define	LCD_CS_SET  	LCD_CTRLB->BSRR=LCD_CS
 
     
-#define	LCD_LED_SET  	LCD_CTRLA->BSRR=LCD_LED
+#define	LCD_LED_SET  	LCD_CTRLB->BSRR=LCD_LED
 #define	LCD_RS_SET  	LCD_CTRLB->BSRR=LCD_RS
 #define	LCD_RST_SET  	LCD_CTRLB->BSRR=LCD_RST
 //Òº¾§¿ØÖÆ¿ÚÖÃ0²Ù×÷Óï¾äºê¶¨Òå
 #define	LCD_SCL_CLR  	LCD_CTRLB->BRR=LCD_SCL
 #define	LCD_SDA_CLR  	LCD_CTRLB->BRR=LCD_SDA
-#define	LCD_CS_CLR  	LCD_CTRLA->BRR=LCD_CS
+#define	LCD_CS_CLR  	LCD_CTRLB->BRR=LCD_CS
 
-#define	LCD_LED_CLR  	LCD_CTRLA->BRR=LCD_LED
+#define	LCD_LED_CLR  	LCD_CTRLB->BRR=LCD_LED
 #define	LCD_RST_CLR  	LCD_CTRLB->BRR=LCD_RST
 #define	LCD_RS_CLR  	LCD_CTRLB->BRR=LCD_RS
 

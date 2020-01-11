@@ -48,22 +48,25 @@ public:
     QLabel *labelEntryTime;
     QLabel *label_4;
     QLabel *label_9;
-    QLabel *labelSex;
+    QLabel *labelBalance;
     QLabel *label_7;
     QLabel *labelLeftTime;
     QLabel *label_11;
     QSpacerItem *verticalSpacer_9;
     QGroupBox *groupBox_2;
     QGridLayout *gridLayout_3;
-    QSpacerItem *verticalSpacer_3;
-    QLabel *labelConnectStatus;
-    QSpacerItem *horizontalSpacer_3;
-    QLabel *label_14;
-    QSpacerItem *verticalSpacer_2;
-    QSpacerItem *verticalSpacer;
     QLabel *label_39;
-    QLabel *label_15;
+    QLabel *labelConnectStatus;
+    QSpacerItem *verticalSpacer_3;
     QSpacerItem *horizontalSpacer_4;
+    QSpacerItem *verticalSpacer;
+    QSpacerItem *verticalSpacer_2;
+    QLabel *label_14;
+    QLabel *label_15;
+    QSpacerItem *horizontalSpacer_5;
+    QSpacerItem *horizontalSpacer_3;
+    QPushButton *pushButtonReflsh;
+    QSpacerItem *horizontalSpacer_6;
     QLineEdit *lineEditInNum;
     QLineEdit *lineEditAllNum;
     QWidget *tabLogisticsChange;
@@ -83,7 +86,7 @@ public:
     {
         if (ManageWidget->objectName().isEmpty())
             ManageWidget->setObjectName(QStringLiteral("ManageWidget"));
-        ManageWidget->resize(648, 382);
+        ManageWidget->resize(844, 562);
         gridLayout = new QGridLayout(ManageWidget);
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
@@ -171,10 +174,10 @@ public:
 
         gridLayout_2->addWidget(label_9, 5, 0, 1, 1);
 
-        labelSex = new QLabel(groupBox);
-        labelSex->setObjectName(QStringLiteral("labelSex"));
+        labelBalance = new QLabel(groupBox);
+        labelBalance->setObjectName(QStringLiteral("labelBalance"));
 
-        gridLayout_2->addWidget(labelSex, 5, 1, 1, 1);
+        gridLayout_2->addWidget(labelBalance, 5, 1, 1, 1);
 
         label_7 = new QLabel(groupBox);
         label_7->setObjectName(QStringLiteral("label_7"));
@@ -203,9 +206,10 @@ public:
         gridLayout_3->setSpacing(6);
         gridLayout_3->setContentsMargins(11, 11, 11, 11);
         gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
-        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        label_39 = new QLabel(groupBox_2);
+        label_39->setObjectName(QStringLiteral("label_39"));
 
-        gridLayout_3->addItem(verticalSpacer_3, 10, 3, 1, 1);
+        gridLayout_3->addWidget(label_39, 9, 1, 1, 2);
 
         labelConnectStatus = new QLabel(groupBox_2);
         labelConnectStatus->setObjectName(QStringLiteral("labelConnectStatus"));
@@ -213,9 +217,21 @@ public:
 
         gridLayout_3->addWidget(labelConnectStatus, 9, 3, 1, 1);
 
-        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        gridLayout_3->addItem(horizontalSpacer_3, 1, 4, 1, 1);
+        gridLayout_3->addItem(verticalSpacer_3, 10, 3, 1, 1);
+
+        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_3->addItem(horizontalSpacer_4, 3, 0, 1, 1);
+
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_3->addItem(verticalSpacer, 0, 1, 1, 1);
+
+        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_3->addItem(verticalSpacer_2, 5, 3, 1, 1);
 
         label_14 = new QLabel(groupBox_2);
         label_14->setObjectName(QStringLiteral("label_14"));
@@ -229,19 +245,6 @@ public:
 
         gridLayout_3->addWidget(label_14, 1, 1, 1, 2);
 
-        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_3->addItem(verticalSpacer_2, 5, 3, 1, 1);
-
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_3->addItem(verticalSpacer, 0, 1, 1, 1);
-
-        label_39 = new QLabel(groupBox_2);
-        label_39->setObjectName(QStringLiteral("label_39"));
-
-        gridLayout_3->addWidget(label_39, 9, 1, 1, 1);
-
         label_15 = new QLabel(groupBox_2);
         label_15->setObjectName(QStringLiteral("label_15"));
         label_15->setFont(font2);
@@ -249,9 +252,22 @@ public:
 
         gridLayout_3->addWidget(label_15, 3, 1, 1, 2);
 
-        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout_3->addItem(horizontalSpacer_4, 3, 0, 1, 1);
+        gridLayout_3->addItem(horizontalSpacer_5, 9, 0, 1, 1);
+
+        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_3->addItem(horizontalSpacer_3, 1, 4, 1, 2);
+
+        pushButtonReflsh = new QPushButton(groupBox_2);
+        pushButtonReflsh->setObjectName(QStringLiteral("pushButtonReflsh"));
+
+        gridLayout_3->addWidget(pushButtonReflsh, 9, 4, 1, 1);
+
+        horizontalSpacer_6 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_3->addItem(horizontalSpacer_6, 9, 5, 1, 1);
 
         lineEditInNum = new QLineEdit(groupBox_2);
         lineEditInNum->setObjectName(QStringLiteral("lineEditInNum"));
@@ -347,22 +363,23 @@ public:
     {
         ManageWidget->setWindowTitle(QApplication::translate("ManageWidget", "ManageWidget", nullptr));
         label->setText(QApplication::translate("ManageWidget", "\345\201\234\350\275\246\345\234\272\347\256\241\347\220\206", nullptr));
-        groupBox->setTitle(QApplication::translate("ManageWidget", "\351\227\250\347\246\201\344\277\241\346\201\257", nullptr));
-        label_2->setText(QApplication::translate("ManageWidget", "\345\255\246\345\217\267:", nullptr));
+        groupBox->setTitle(QApplication::translate("ManageWidget", "\350\275\246\350\276\206\344\277\241\346\201\257", nullptr));
+        label_2->setText(QApplication::translate("ManageWidget", "\350\275\246\344\270\273:", nullptr));
         labelId->setText(QApplication::translate("ManageWidget", "NA", nullptr));
         labelName->setText(QApplication::translate("ManageWidget", "NA", nullptr));
         labelEntryTime->setText(QApplication::translate("ManageWidget", "NA", nullptr));
-        label_4->setText(QApplication::translate("ManageWidget", "\345\247\223\345\220\215:", nullptr));
-        label_9->setText(QApplication::translate("ManageWidget", "\346\200\247\345\210\253:", nullptr));
-        labelSex->setText(QApplication::translate("ManageWidget", "NA", nullptr));
+        label_4->setText(QApplication::translate("ManageWidget", "\350\275\246\347\211\214:", nullptr));
+        label_9->setText(QApplication::translate("ManageWidget", "\344\275\231\351\242\235:", nullptr));
+        labelBalance->setText(QApplication::translate("ManageWidget", "NA", nullptr));
         label_7->setText(QApplication::translate("ManageWidget", "\350\277\233\345\205\245\346\227\266\351\227\264:", nullptr));
         labelLeftTime->setText(QApplication::translate("ManageWidget", "NA", nullptr));
         label_11->setText(QApplication::translate("ManageWidget", "\347\246\273\345\274\200\346\227\266\351\227\264:", nullptr));
         groupBox_2->setTitle(QApplication::translate("ManageWidget", "\347\212\266\346\200\201", nullptr));
+        label_39->setText(QApplication::translate("ManageWidget", "\350\256\241\350\264\271\346\234\272\345\231\250\347\212\266\346\200\201", nullptr));
         labelConnectStatus->setText(QApplication::translate("ManageWidget", "\346\234\252\350\277\236\346\216\245", nullptr));
-        label_14->setText(QApplication::translate("ManageWidget", "\345\234\250\345\213\244\344\272\272\346\225\260", nullptr));
-        label_39->setText(QApplication::translate("ManageWidget", "\350\200\203\345\213\244\346\234\272\345\231\250\347\212\266\346\200\201", nullptr));
-        label_15->setText(QApplication::translate("ManageWidget", "\346\200\273\344\272\272\346\225\260", nullptr));
+        label_14->setText(QApplication::translate("ManageWidget", "\345\201\234\350\275\246\345\234\272\350\275\246\350\276\206\346\225\260\351\207\217", nullptr));
+        label_15->setText(QApplication::translate("ManageWidget", "\350\275\246\350\276\206\346\200\273\346\225\260", nullptr));
+        pushButtonReflsh->setText(QApplication::translate("ManageWidget", "\345\210\267\346\226\260", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tabLogisticsInfo), QApplication::translate("ManageWidget", "\346\203\205\345\206\265", nullptr));
         groupBox_3->setTitle(QApplication::translate("ManageWidget", "\344\277\241\346\201\257\344\277\256\346\224\271", nullptr));
         buttonAdd->setText(QApplication::translate("ManageWidget", "\345\242\236\345\212\240", nullptr));

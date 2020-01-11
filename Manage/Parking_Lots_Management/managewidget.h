@@ -36,6 +36,8 @@ private slots:
 
     void on_pushButtonFlesh_released();
 
+    void on_pushButtonReflsh_clicked();
+
 private:
     Ui::ManageWidget *ui;
     QSqlDatabase database;     //数据库

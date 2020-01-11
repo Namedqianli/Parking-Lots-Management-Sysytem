@@ -216,6 +216,7 @@ Makefile: ../Parking_Lots_Management/Parking_Lots_Management.pro D:/Qt/Qt5.11.0/
 		D:/Qt/Qt5.11.0/5.11.0/mingw53_32/mkspecs/features/qt_config.prf \
 		D:/Qt/Qt5.11.0/5.11.0/mingw53_32/mkspecs/win32-g++/qmake.conf \
 		D:/Qt/Qt5.11.0/5.11.0/mingw53_32/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		D:/Qt/Qt5.11.0/5.11.0/mingw53_32/mkspecs/features/exclusive_builds.prf \
 		D:/Qt/Qt5.11.0/5.11.0/mingw53_32/mkspecs/features/toolchain.prf \
 		D:/Qt/Qt5.11.0/5.11.0/mingw53_32/mkspecs/features/default_pre.prf \
@@ -242,6 +243,9 @@ Makefile: ../Parking_Lots_Management/Parking_Lots_Management.pro D:/Qt/Qt5.11.0/
 		D:/Qt/Qt5.11.0/5.11.0/mingw53_32/lib/qtmaind.prl \
 		D:/Qt/Qt5.11.0/5.11.0/mingw53_32/lib/Qt5Widgets.prl \
 		D:/Qt/Qt5.11.0/5.11.0/mingw53_32/lib/Qt5Gui.prl \
+		D:/Qt/Qt5.11.0/5.11.0/mingw53_32/lib/Qt5Network.prl \
+		D:/Qt/Qt5.11.0/5.11.0/mingw53_32/lib/Qt5Sql.prl \
+		D:/Qt/Qt5.11.0/5.11.0/mingw53_32/lib/Qt5SerialPort.prl \
 		D:/Qt/Qt5.11.0/5.11.0/mingw53_32/lib/Qt5Core.prl
 	$(QMAKE) -o Makefile ..\Parking_Lots_Management\Parking_Lots_Management.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 D:/Qt/Qt5.11.0/5.11.0/mingw53_32/mkspecs/features/spec_pre.prf:
@@ -399,6 +403,7 @@ D:/Qt/Qt5.11.0/5.11.0/mingw53_32/mkspecs/features/qt_functions.prf:
 D:/Qt/Qt5.11.0/5.11.0/mingw53_32/mkspecs/features/qt_config.prf:
 D:/Qt/Qt5.11.0/5.11.0/mingw53_32/mkspecs/win32-g++/qmake.conf:
 D:/Qt/Qt5.11.0/5.11.0/mingw53_32/mkspecs/features/spec_post.prf:
+.qmake.stash:
 D:/Qt/Qt5.11.0/5.11.0/mingw53_32/mkspecs/features/exclusive_builds.prf:
 D:/Qt/Qt5.11.0/5.11.0/mingw53_32/mkspecs/features/toolchain.prf:
 D:/Qt/Qt5.11.0/5.11.0/mingw53_32/mkspecs/features/default_pre.prf:
@@ -425,6 +430,9 @@ D:/Qt/Qt5.11.0/5.11.0/mingw53_32/mkspecs/features/lex.prf:
 D:/Qt/Qt5.11.0/5.11.0/mingw53_32/lib/qtmaind.prl:
 D:/Qt/Qt5.11.0/5.11.0/mingw53_32/lib/Qt5Widgets.prl:
 D:/Qt/Qt5.11.0/5.11.0/mingw53_32/lib/Qt5Gui.prl:
+D:/Qt/Qt5.11.0/5.11.0/mingw53_32/lib/Qt5Network.prl:
+D:/Qt/Qt5.11.0/5.11.0/mingw53_32/lib/Qt5Sql.prl:
+D:/Qt/Qt5.11.0/5.11.0/mingw53_32/lib/Qt5SerialPort.prl:
 D:/Qt/Qt5.11.0/5.11.0/mingw53_32/lib/Qt5Core.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ..\Parking_Lots_Management\Parking_Lots_Management.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"

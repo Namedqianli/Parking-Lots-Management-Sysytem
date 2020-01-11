@@ -42,32 +42,33 @@ void LCD_GPIO_Init(void)
 	      
 	RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOB ,ENABLE);
 	
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10 | GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_11;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4 | GPIO_Pin_5 | GPIO_Pin_6 | GPIO_Pin_7 | GPIO_Pin_8 | GPIO_Pin_9;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
 	GPIO_Init(GPIOB, &GPIO_InitStructure);
       
 	
-	RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOA ,ENABLE);
-	
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
-	GPIO_Init(GPIOA, &GPIO_InitStructure);
+//	RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOA ,ENABLE);
+//	
+//	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7;
+//	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+//	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+//	GPIO_Init(GPIOA, &GPIO_InitStructure);
 }
 //向SPI总线传输一个8位数据
-void  SPI_WriteData(u8 Data)
+void SPI_WriteData(u8 Data)
 {
 	unsigned char i=0;
 	for(i=8;i>0;i--)
 	{
 		if(Data&0x80)	
-	  LCD_SDA_SET; //输出数据
-      else LCD_SDA_CLR;
-	   
-      LCD_SCL_CLR;       
-      LCD_SCL_SET;
-      Data<<=1; 
+			LCD_SDA_SET; //输出数据
+    else
+			LCD_SDA_CLR;
+
+		LCD_SCL_CLR;
+		LCD_SCL_SET;
+		Data<<=1;
 	}
 }
 
@@ -122,7 +123,7 @@ void Lcd_Init(void)
 	//LCD Init For 1.44Inch LCD Panel with ST7735R.
 	Lcd_WriteIndex(0x11);//Sleep exit 
 	delay_ms (120);
-		
+
 	//ST7735R Frame Rate
 	Lcd_WriteIndex(0xB1); 
 	Lcd_WriteData(0x01); 
@@ -141,10 +142,10 @@ void Lcd_Init(void)
 	Lcd_WriteData(0x01); 
 	Lcd_WriteData(0x2C); 
 	Lcd_WriteData(0x2D); 
-	
+
 	Lcd_WriteIndex(0xB4); //Column inversion 
 	Lcd_WriteData(0x07); 
-	
+
 	//ST7735R Power Sequence
 	Lcd_WriteIndex(0xC0); 
 	Lcd_WriteData(0xA2); 

@@ -3,52 +3,54 @@
 <pre>
 <h1>礦ision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: μVision V5.28.0.0
-Copyright (C) 2019 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: l l, l, LIC=----
+IDE-Version: μVision V5.25.3.0
+Copyright (C) 2018 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Li JunkYu, guet, LIC=CZLX7-E1WA3-UGC7Q-NA518-CULXN-794AH
  
 Tool Versions:
-Toolchain:       MDK-Lite  Version: 5.28.0.0
-Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+Toolchain:       MDK-ARM Plus  Version: 5.26.2.0
+Toolchain Path:  D:\Software\Keil_v5\ARM\ARMCC\Bin
 C Compiler:      Armcc.exe V5.06 update 6 (build 750)
 Assembler:       Armasm.exe V5.06 update 6 (build 750)
 Linker/Locator:  ArmLink.exe V5.06 update 6 (build 750)
 Library Manager: ArmAr.exe V5.06 update 6 (build 750)
 Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
-CPU DLL:         SARMCM3.DLL V5.28.0.0
-Dialog DLL:      DCM.DLL V1.17.3.0
-Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.6.0
-Dialog DLL:      TCM.DLL V1.36.2.0
+CPU DLL:         SARMCM3.DLL V5.26.2.0
+Dialog DLL:      DCM.DLL V1.17.2.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.5.0
+Dialog DLL:      TCM.DLL V1.36.1.0
  
 <h2>Project:</h2>
-E:\CODE\Parking-Lots-Management-Sysytem\下位机\project\pro.uvprojx
-Project File Date:  12/26/2019
+E:\Code\EMB\下位机\project\pro.uvprojx
+Project File Date:  12/30/2019
 
 <h2>Output:</h2>
-*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Software\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Target 1'
 compiling main.c...
 USER\main.c(58): warning:  #1295-D: Deprecated declaration findcard - give arg types
   void findcard();
-USER\main.c(158): warning:  #177-D: variable "rfidflag"  was declared but never referenced
+USER\main.c(217): warning:  #111-D: statement is unreachable
+  	return 0;
+USER\main.c(157): warning:  #177-D: variable "buf1"  was declared but never referenced
+  	u8 buf1[20];
+USER\main.c(159): warning:  #177-D: variable "rfidflag"  was declared but never referenced
   	unsigned char rfidflag;
-USER\main.c(159): warning:  #177-D: variable "discnt"  was declared but never referenced
+USER\main.c(160): warning:  #177-D: variable "discnt"  was declared but never referenced
   	unsigned char discnt;
-USER\main.c(221): warning:  #1293-D: assignment in condition
-  		if (SelectedSnr[ii] = card1[ii])
-USER\main.c(232): warning:  #111-D: statement is unreachable
+USER\main.c(236): warning:  #111-D: statement is unreachable
   	      break; 
-USER\main.c(245): warning:  #111-D: statement is unreachable
+USER\main.c(251): warning:  #111-D: statement is unreachable
   	 	     break; 
-USER\main.c(258): warning:  #111-D: statement is unreachable
+USER\main.c(265): warning:  #111-D: statement is unreachable
   	 	     break; 
-USER\main.c(271): warning:  #111-D: statement is unreachable
+USER\main.c(278): warning:  #111-D: statement is unreachable
   	 	     break; 
-USER\main.c: 8 warnings, 0 errors
+USER\main.c: 9 warnings, 0 errors
 linking...
-Program Size: Code=7644 RO-data=6896 RW-data=56 ZI-data=1904  
+Program Size: Code=4532 RO-data=6884 RW-data=36 ZI-data=1652  
 FromELF: creating hex file...
-".\Objects\STM32-FD-FLASHLED.axf" - 0 Error(s), 8 Warning(s).
+".\Objects\STM32-FD-FLASHLED.axf" - 0 Error(s), 9 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -59,7 +61,7 @@ Package Vendor: Keil
 
 <h2>Collection of Component include folders:</h2>
   .\RTE\_Target_1
-  C:\Users\24853\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include
+  D:\Software\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include
 
 <h2>Collection of Component Files used:</h2>
 Build Time Elapsed:  00:00:02
