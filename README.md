@@ -1,4 +1,5 @@
 # Parking-Lots-Management-Sysytem
-The Emb’s curriculum design
-这是嵌入式系统的课程设计
-停车场管理系统
+The Emb’s curriculum design.
+
+It use stm32 to read RFID CARD and control the door.
+Tht manager software develop by QT(C++).
